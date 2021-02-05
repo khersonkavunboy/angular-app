@@ -1,1 +1,40 @@
-<p>card works!</p>
+<div class="card">
+  <h1 [ngStyle]="{
+    color: card.title.length < 5 ? 'red' : 'blue'
+  }">{{index}} {{card.title}}</h1>
+
+  <p
+    class="text"
+    [class.blue]="textColor === 'blue'"
+    [class.green]="textColor === 'green'"
+    [class.red]="textColor === 'red'"
+      >{{card.text}}</p>
+
+
+  <div>{{number}}</div>
+  <div>{{array}}</div>
+  <div>{{ obj | json }}</div>
+  <div>{{getInfo()}}</div>
+
+  <div>
+    <img [src]="imgUrl" alt="picture">
+  </div>
+
+  <button (click)="changeTitle()" >Change title</button>
+
+<!--  <div>-->
+<!--      <input  type="text" (input)="inputHandler($event)"  />-->
+<!--      <input  type="text"  #inputText (input)="inputHandler(inputText.value)"  />-->
+<!--  </div>-->
+
+  <div>
+    <input type="text" [(ngModel)]="card.title" (ngModelChange)="changeHandler()" >
+  </div>
+
+  <div>
+    <button (click)="textColor='blue'">Set Blue</button>
+    <button (click)="textColor='green'">Set Green</button>
+    <button (click)="textColor='red'">Set Red</button>
+  </div>
+
+</div>

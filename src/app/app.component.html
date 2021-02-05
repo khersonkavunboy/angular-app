@@ -1,4 +1,24 @@
 <div class="container">
   <h1>Hello angular</h1>
+
+    <hr />
+      <button (click)="toggleCards()">Toggle Cards</button>
+    <hr />
+
+
+  <div *ngIf="toggle; else nocards">
+    <app-card
+      *ngFor="let i of cards; let idx = index"
+      [card]="i"
+      [index]="idx+1"
+    ></app-card>
+
+
+  </div>
+
+  <ng-template #nocards>
+    <p>Cards are hidden!</p>
+  </ng-template>
+
 </div>
 
